@@ -14,12 +14,13 @@ export default {
     ],
     resolve: {
         root: [
-            path.resolve(cwd, 'client')
+            path.join(cwd, 'client'),
+            path.join(cwd, 'node_modules/bootstrap/less/')
         ]
     },
     output: {
         filename: '[name].js',
-        path: path.join(cwd, 'build/assets'),
+        path: path.resolve(cwd, 'build/assets'),
         publicPath: 'http://localhost:3001/assets/'
     },
     module: {
@@ -39,7 +40,7 @@ export default {
             },
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'less?include=../../node_modules/bootstrap/less']
+                loaders: ['style', 'css', `less?root=${path.resolve(cwd, './node_modules/bootstrap/less/')}`]
             }
         ]
     },

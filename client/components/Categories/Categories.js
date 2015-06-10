@@ -1,23 +1,19 @@
 import React from 'react';
-//import DeliveryType from '../DeliveryType';
-//import {deliveryTypes} from '../../config';
+import CategoryItem from 'components/CategoryItem';
 
 import './Categories.less';
 
 class Categories extends React.Component {
     render() {
+        var allCategories = this.props.categories.map((category, key) => {
+           return (<CategoryItem {...category} key={category.id}/>)
+        });
+
         return (
             <div className='Categories'>
                 <h3>Что вы хотите перевезти?</h3>
                 <div className='Categories-types'>
-                    Cargo Types
-                    {/*deliveryTypes.map((delivery, i) => {
-                        return <div className='Categories-type'
-                                    key={i}>
-                            <DeliveryType
-                                delivery={delivery} />
-                        </div>
-                    })*/}
+                    {allCategories}
                 </div>
             </div>
         );

@@ -1,0 +1,18 @@
+@import (reference) '../../../node_modules/bootstrap/less/bootstrap.less';
+
+.Cargo {
+    .list-group-item();
+
+    &-controls {
+        .pull-right();
+    }
+
+    &-remove,
+    &-edit {
+        .btn();
+        .btn-link();
+
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

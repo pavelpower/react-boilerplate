@@ -2,13 +2,15 @@ import {EventEmitter} from 'events';
 import Dispatcher from 'core/Dispatcher';
 import Actions from 'constants/Actions';
 
+import initialState from '../../test/fixtures/state';
+
 const CHANGE_EVENT = 'change';
 
 /**
  * @type {object}
  * @private
  */
-var _state = {};
+var _state = initialState;
 
 var _savedState = {};
 
@@ -21,6 +23,14 @@ function loadState() {
 
 function setName(name) {
     _state.name = name;
+}
+
+function selectCategory(id) {
+    _state.categories.forEach((category) => {
+        if (category.id === id) {
+            category.selected = true;
+        }
+    });
 }
 
 class Store extends EventEmitter {
@@ -52,16 +62,17 @@ class Store extends EventEmitter {
         switch (action.type) {
             case Actions.SAVE_STATE:
                 window._savedState = JSON.stringify(_state);
-
-                console.log('save', window._savedState);
                 break;
             case Actions.LOAD_STATE:
-                console.log('load', window._savedState);
                 _state = loadState();
                 this.emitChange();
                 break;
             case Actions.SET_NAME:
                 setName(payload);
+                this.emitChange();
+                break;
+            case Actions.SELECT_CATEGORY:
+                selectCategory(payload);
                 this.emitChange();
                 break;
         }

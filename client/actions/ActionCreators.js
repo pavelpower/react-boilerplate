@@ -19,6 +19,13 @@ var ActionCreators = {
             type: Actions.SET_NAME,
             payload: name
         })
+    },
+
+    selectCategory(id) {
+        Dispatcher.dispatch({
+            type: Actions.SELECT_CATEGORY,
+            payload: id
+        })
     }
 };
 

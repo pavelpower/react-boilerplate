@@ -17,7 +17,7 @@ server.use((request, response, next) => {
     next();
 });
 
-server.use(devServer());
+server.use (devServer());
 
 server.use('/', render());
 
