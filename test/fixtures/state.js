@@ -27,13 +27,39 @@ export default {
     properties: [
         {
             id: 'payment_mode',
-            label: 'Способ оплаты',
-            type: 'text'
+            label: 'Комментарий',
+            placeholder: 'Комментарий к перевозке',
+            type: 'textarea'
         },
         {
             id: 'loading_hand',
             label: 'Необходимы услуги грузчиков',
             type: 'checkbox'
+        },
+        {
+            id: 'floor_loading',
+            label: 'Этаж погрузки',
+            type: 'text'
+        },
+        {
+            id: 'floor_unloading',
+            label: 'Этаж выгрузки',
+            type: 'text'
+        },
+        {
+            id: 'elevator_type',
+            label: 'Лифт',
+            type: 'radio',
+            options: [
+                {
+                    value: 'passenger',
+                    label: 'Пассажирский'
+                },
+                {
+                    value: 'freight',
+                    label: 'Грузовой'
+                }
+            ]
         }
     ],
 
