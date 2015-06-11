@@ -5,14 +5,18 @@ import './Categories.less';
 
 class Categories extends React.Component {
     render() {
-        var allCategories = this.props.categories.map((category, key) => {
-           return (<CategoryItem {...category} key={category.id}/>)
+        var allCategories = this.props.categories.map((category) => {
+            return (
+                <div className="Categories-item" key={category.id}>
+                    <CategoryItem {...category} />
+                </div>
+            );
         });
 
         return (
             <div className='Categories'>
                 <h3>Что вы хотите перевезти?</h3>
-                <div className='Categories-types'>
+                <div className='Categories-list'>
                     {allCategories}
                 </div>
             </div>

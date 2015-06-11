@@ -22,6 +22,12 @@ class Cargos extends React.Component {
                 </div>
             </div>
         )
+
+        return (
+            <div>
+                <div elem="add">sdfsdjf</div>
+            </div>
+        )
     }
 
 }

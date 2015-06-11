@@ -18,6 +18,13 @@ export default {
             path.join(cwd, 'node_modules/bootstrap/less/')
         ]
     },
+    // externals: [
+    //     {
+    //         'react': 'var React',
+    //         'react/addons': 'var React.addons',
+    //         'react/lib/keyMirror': 'var React.addons.keyMirror'
+    //     }
+    // ],
     output: {
         filename: '[name].js',
         path: path.resolve(cwd, 'build/assets'),
@@ -53,7 +60,11 @@ export default {
             process.stdout.write(CLEAR_LINE + Math.round(percentage * 100) + "% :" + message + MOVE_LEFT);
         }),
         function () {
-            this.plugin("done", function notifyStats(stats) {
+            this.plugin("done", function (stats) {
+                // var ws = fs.openSync(path.join(cwd, 'webpack-stats.json'), 'w+');
+                // fs.writeSync(ws, JSON.stringify(stats.toJson()));
+                // fs.closeSync(ws);
+
                 console.log(stats.toString({
                     chunks: false,
                     colors: true
