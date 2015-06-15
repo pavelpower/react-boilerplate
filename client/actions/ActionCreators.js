@@ -14,18 +14,25 @@ var ActionCreators = {
         });
     },
 
-    setName(name) {
-        Dispatcher.dispatch({
-            type: Actions.SET_NAME,
-            payload: name
-        })
-    },
-
     selectCategory(id) {
         Dispatcher.dispatch({
             type: Actions.SELECT_CATEGORY,
             payload: id
         })
+    },
+
+    startCargoEditing(cargoId) {
+
+    },
+
+    stopCargoEditing() {
+        Dispatcher.dispatch({
+            type: Actions.STOP_CARGO_EDITING
+        });
+    },
+
+    updateCargo(cargoId, data) {
+
     }
 };
 

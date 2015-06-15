@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Control from 'components/Controls';
 
 class Property extends React.Component {

@@ -33,6 +33,10 @@ function selectCategory(id) {
     });
 }
 
+function stopCargoEditing() {
+    delete _state.editingCargo;
+}
+
 class Store extends EventEmitter {
 
     getState() {
@@ -73,6 +77,10 @@ class Store extends EventEmitter {
                 break;
             case Actions.SELECT_CATEGORY:
                 selectCategory(payload);
+                this.emitChange();
+                break;
+            case Actions.STOP_CARGO_EDITING:
+                stopCargoEditing();
                 this.emitChange();
                 break;
         }

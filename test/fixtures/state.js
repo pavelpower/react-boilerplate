@@ -97,5 +97,21 @@ export default {
             ]
         }
     ],
-    selectedCargo: null
+
+    editingCargo: {
+        id: 'table',
+        name: 'Стол',
+        properties: [
+            {
+                id: 'amount',
+                label: 'Количество',
+                type: 'text'
+            },
+            {
+                id: 'comment',
+                label: 'Комментарий',
+                type: 'textarea'
+            }
+        ]
+    }
 }

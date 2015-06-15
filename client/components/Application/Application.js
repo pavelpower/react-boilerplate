@@ -6,6 +6,7 @@ import Header from 'components/Header';
 import Categories from 'components/Categories';
 import Subcategories from 'components/Subcategories';
 import Cargos from 'components/Cargos';
+import CargoDialog from 'components/CargoDialog';
 import Properties from 'components/Properties';
 
 import './Application.less';
@@ -34,6 +35,10 @@ class Application extends React.Component {
                 <Subcategories categories={this.state.selectedCategory.cargos} />
                 <Cargos cargos={this.state.cargos} />
                 <Properties properties={this.state.properties} />
+
+                {this.state.editingCargo ?
+                    <CargoDialog cargo={this.state.editingCargo} /> : ''
+                }
             </div>
         );
     }
