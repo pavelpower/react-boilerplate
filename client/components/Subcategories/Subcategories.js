@@ -5,10 +5,10 @@ import './Subcategories.less';
 
 class Subcategories extends React.Component {
     render() {
-        var allSubcategories = this.props.categories.map((category) => {
+        var allSubcategories = this.props.categories.map((cargo) => {
             return (
-                <div className="Subcategories-item" key={category.id}>
-                    <Subcategory {...category} />
+                <div className="Subcategories-item" key={cargo.id}>
+                    <Subcategory {...cargo} />
                 </div>
             );
         });

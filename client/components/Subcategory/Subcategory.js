@@ -17,7 +17,7 @@ class Subcategory extends React.Component {
     }
 
     _onClick = () => {
-        // ActionCreators.selectCategory(this.props.id);
+         ActionCreators.addCargo(this.props.id);
     }
 
 }

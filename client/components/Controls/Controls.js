@@ -24,12 +24,12 @@ class Control extends React.Component {
                 this.ControlClass = RadioControl;
                 break;
             default:
-                throw new Error(`Unknown conrol type "${type}".`);
+                throw new Error(`Unknown conrol type "${props.type}".`);
         }
     }
 
     render() {
-        return <this.ControlClass {...this.props} />;
+        return <this.ControlClass {...this.props} label={this.props.name} />;
     }
 }
 

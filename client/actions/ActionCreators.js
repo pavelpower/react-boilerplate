@@ -22,7 +22,10 @@ var ActionCreators = {
     },
 
     startCargoEditing(cargoId) {
-
+        Dispatcher.dispatch({
+            type: Actions.START_CARGO_EDITING,
+            payload: cargoId
+        });
     },
 
     stopCargoEditing() {
@@ -31,8 +34,31 @@ var ActionCreators = {
         });
     },
 
-    updateCargo(cargoId, data) {
+    cancelCargoEditing() {
+        Dispatcher.dispatch({
+            type: Actions.CANCEL_CARGO_EDITING
+        });
+    },
 
+    updateEditingCargo(key, value) {
+        Dispatcher.dispatch({
+            type: Actions.UPDATE_EDITING_CARGO,
+            payload: {key, value}
+        });
+    },
+
+    addCargo(cargoId) {
+        Dispatcher.dispatch({
+            type: Actions.ADD_CARGO,
+            payload: cargoId
+        })
+    },
+
+    removeCargo(cargoId) {
+        Dispatcher.dispatch({
+            type: Actions.REMOVE_CARGO,
+            payload: cargoId
+        })
     }
 };
 

@@ -10,14 +10,25 @@ class CargoDialog extends React.Component {
     }
 
     render() {
-        var content = this.props.cargo.properties.map((property) => {
+        var content = this.props.cargo.properties.map((property, key) => {
+            //var property = this.props.cargo.properties[key];
             return (
                 <Controls
-                    {...property}
+                    {...property.toJS()}
                     key={property.id}
                     onChange={this._onPropertyChange.bind(this, property.id)} />
             )
         });
+
+        //var content = Object.keys(this.props.cargo.properties).map((key) => {
+        //    var property = this.props.cargo.properties[key];
+        //    return (
+        //        <Controls
+        //            {...property}
+        //            key={property.id}
+        //            onChange={this._onPropertyChange.bind(this, property.id)} />
+        //    )
+        //});
 
         return (
             <div className='CargoDialog'>
@@ -31,15 +42,14 @@ class CargoDialog extends React.Component {
     }
 
     _onPropertyChange(key, event) {
-        console.log('prop chacnges', key, event.target.value)
+        ActionCreators.updateEditingCargo(key, event.target.value);
     }
 
     _onDialogClose = () => {
-        ActionCreators.stopCargoEditing();
+        ActionCreators.cancelCargoEditing();
     }
 
     _onDialogSave = () => {
-        ActionCreators.updateCargo();
         ActionCreators.stopCargoEditing();
     }
 

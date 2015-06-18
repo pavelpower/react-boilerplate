@@ -1,3 +1,4 @@
+import 'babel/polyfill';
 import React from 'react';
 import ActionCreators from 'actions/ActionCreators';
 import ApplicationStore from 'stores/Store'
@@ -32,8 +33,14 @@ class Application extends React.Component {
             <div className="Application">
                 <Header title="hello, world" />
                 <Categories categories={this.state.categories} />
-                <Subcategories categories={this.state.selectedCategory.cargos} />
-                <Cargos cargos={this.state.cargos} />
+                {this.state.selectedCategory ?
+                    <Subcategories categories={this.state.selectedCategory.cargos} /> : ''
+                }
+
+                {this.state.cargos.size > 0 ?
+                    <Cargos cargos={this.state.cargos} /> : ''
+                }
+
                 <Properties properties={this.state.properties} />
 
                 {this.state.editingCargo ?

@@ -56,8 +56,8 @@ class Dialog extends React.Component {
         }
         if (this.props.onClose) {
             this.props.onClose();
-            //this._modal.modal('hide');
         }
+        this._modal.modal('hide');
     }
 
 }

@@ -14,6 +14,7 @@ class TextControl extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="TextControl form-group">
                 <label htmlFor={this.props.id}>
@@ -22,6 +23,7 @@ class TextControl extends React.Component {
                 <input className="form-control"
                        id={this.props.id}
                        type="text"
+                       defaultValue={this.props.value}
                        placeholder={this.props.placeholder}
                        onChange={this.props.onChange} />
             </div>

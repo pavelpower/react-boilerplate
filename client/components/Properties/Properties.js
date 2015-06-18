@@ -6,8 +6,8 @@ import './Properties.less';
 class Properties extends React.Component {
 
     render() {
-        var allProperties = this.props.properties.map((property, key) => {
-            return <Property {...property} key={key} />
+        var allProperties = Object.keys(this.props.properties).map((key) => {
+            return <Property {...this.props.properties[key]} key={key} />
         });
 
         return (

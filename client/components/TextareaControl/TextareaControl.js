@@ -24,6 +24,7 @@ class TextareaControl extends React.Component {
                 <textarea className="form-control"
                        id={this.props.id}
                        rows={this.props.rows}
+                      defaultValue={this.props.value}
                        placeholder={this.props.placeholder}
                        onChange={this.props.onChange} />
             </div>

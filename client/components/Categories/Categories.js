@@ -5,10 +5,10 @@ import './Categories.less';
 
 class Categories extends React.Component {
     render() {
-        var allCategories = this.props.categories.map((category) => {
+        var allCategories = Object.keys(this.props.categories).map((id) => {
             return (
-                <div className="Categories-item" key={category.id}>
-                    <CategoryItem {...category} />
+                <div className="Categories-item" key={id}>
+                    <CategoryItem {...this.props.categories[id]} />
                 </div>
             );
         });
