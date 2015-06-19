@@ -14,7 +14,7 @@ class Property extends React.Component {
     }
 
     _onChange = () => {
-        console.log('NANANA');
+
     }
 
 }

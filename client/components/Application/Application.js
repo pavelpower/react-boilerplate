@@ -2,6 +2,7 @@ import 'babel/polyfill';
 import React from 'react';
 import ActionCreators from 'actions/ActionCreators';
 import ApplicationStore from 'stores/Store'
+import StateStore from 'stores/StateStore'
 
 import Header from 'components/Header';
 import Categories from 'components/Categories';
@@ -29,6 +30,7 @@ class Application extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <div className="Application">
                 <Header title="hello, world" />
@@ -51,6 +53,8 @@ class Application extends React.Component {
     }
 
     _onChange = () => {
+        var s = ApplicationStore.getState();
+        console.log(s);
         this.setState(ApplicationStore.getState());
     }
 }

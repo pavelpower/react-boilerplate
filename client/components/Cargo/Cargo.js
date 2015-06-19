@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import ActionCreators from 'actions/ActionCreators';
+import {CargoType} from 'types';
 
 import './Cargo.less';
 
 class Cargo extends React.Component {
 
+    static propTypes = {
+        cargo: PropTypes.instanceOf(CargoType)
+    }
+
     render() {
+        var cargo = this.props.cargo;
+        console.log('========');
+        console.log(this.props.cargo);
         return (
             <div className="Cargo">
                 <div className="Cargo-controls">
@@ -19,10 +27,10 @@ class Cargo extends React.Component {
                         <span className="glyphicon glyphicon-trash"></span>
                     </button>
                 </div>
-                {this.props.id}. {this.props.name}<br />
-                {Object.keys(this.props.properties).map((key) => {
-                    var property = this.props.properties[key];
-                    return <div key={key}><small key={key}>{property.name}: <b>{property.value}</b></small></div>;
+                {this.props.id}. {cargo.get('name')}<br />
+                {cargo.get('properties').toArray().map((property, key) => {
+                    // var property = cargo.properties[key];
+                    return <div key={key}><small key={key}>{property.get('name')}: <b>{property.get('value')}</b></small></div>;
                 })}
             </div>
         )

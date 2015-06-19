@@ -8,7 +8,7 @@ class Header extends React.Component {
         return (
             <div className="Header">
                 <StateControls />
-                <h1>Hello, {this.props.title}</h1>
+                <h1>Заказ перевозки</h1>
             </div>
         )
     }

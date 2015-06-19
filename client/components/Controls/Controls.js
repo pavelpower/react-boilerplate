@@ -29,7 +29,7 @@ class Control extends React.Component {
     }
 
     render() {
-        return <this.ControlClass {...this.props} label={this.props.name} />;
+        return <this.ControlClass {...this.props} label={this.props.name || this.props.label} />;
     }
 }
 

@@ -8,17 +8,8 @@ class Cargos extends React.Component {
 
     render() {
         var allCargos = this.props.cargos.map((cargo, key) => {
-            return <Cargo {...cargo.toJS()} key={key} id={key}
-                //onEdit={this._onCargoEdit.bind(this, cargo)}
-                 />
+            return <Cargo cargo={cargo} key={key} id={key} />
         });
-
-        //for (let [cargo, i] of this.props.cargos) {
-        //    console.log('c', cargo)
-        //    console.log('i', i)
-        //    //console.log({...cargo.toJS()})
-        //    //allCargos.push(<Cargo {...cargo.toJS()} id={key} key={key} />)
-        //}
 
         return (
             <div className="Cargos">

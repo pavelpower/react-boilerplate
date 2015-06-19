@@ -5,6 +5,7 @@ import './TextControl.less';
 class TextControl extends React.Component {
 
     static propTypes = {
+        label: PropTypes.string.isRequired,
         placeholder: PropTypes.string,
         onChange: PropTypes.func
     }
@@ -14,7 +15,6 @@ class TextControl extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="TextControl form-group">
                 <label htmlFor={this.props.id}>

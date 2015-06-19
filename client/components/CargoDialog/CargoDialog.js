@@ -3,6 +3,9 @@ import Dialog from 'components/Dialog';
 import Controls from 'components/Controls';
 import ActionCreators from 'actions/ActionCreators';
 
+
+import {parseCargo} from 'core/parsers';
+
 class CargoDialog extends React.Component {
 
     static propTypes = {
@@ -10,25 +13,36 @@ class CargoDialog extends React.Component {
     }
 
     render() {
-        var content = this.props.cargo.properties.map((property, key) => {
-            //var property = this.props.cargo.properties[key];
-            return (
-                <Controls
-                    {...property.toJS()}
-                    key={property.id}
-                    onChange={this._onPropertyChange.bind(this, property.id)} />
-            )
-        });
+        var cargo = this.props.cargo;
+        if (typeof this.props.cargo.get !== 'function') {
+            var content = Object.keys(cargo.properties).map((key) => {
+                var property = cargo.properties[key]
+                return (
+                    <Controls
+                        {...property}
+                        key={property.id}
+                        onChange={this._onPropertyChange.bind(this, property.id)} />
+                )
+            });
+        } else {
+            var content = cargo.properties.map((property, key) => {
+                return (
+                    <Controls
+                        {...property.toJS()}
+                        key={property.id}
+                        onChange={this._onPropertyChange.bind(this, property.id)} />
+                )
+            });
+        }
 
-        //var content = Object.keys(this.props.cargo.properties).map((key) => {
-        //    var property = this.props.cargo.properties[key];
-        //    return (
-        //        <Controls
-        //            {...property}
-        //            key={property.id}
-        //            onChange={this._onPropertyChange.bind(this, property.id)} />
-        //    )
-        //});
+        // var content = cargo.properties.map((property, key) => {
+        //     return (
+        //         <Controls
+        //             {...property.toJS()}
+        //             key={property.id}
+        //             onChange={this._onPropertyChange.bind(this, property.id)} />
+        //     )
+        // });
 
         return (
             <div className='CargoDialog'>
