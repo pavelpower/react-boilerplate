@@ -30,7 +30,6 @@ class Application extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="Application">
                 <Header title="hello, world" />
@@ -54,7 +53,6 @@ class Application extends React.Component {
 
     _onChange = () => {
         var s = ApplicationStore.getState();
-        console.log(s);
         this.setState(ApplicationStore.getState());
     }
 }
