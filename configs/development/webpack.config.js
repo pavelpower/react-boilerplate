@@ -14,17 +14,14 @@ export default {
     ],
     resolve: {
         root: [
-            path.join(cwd, 'client'),
-            path.join(cwd, 'node_modules/bootstrap/less/')
+            path.join(cwd, 'client')
         ]
     },
-    // externals: [
-    //     {
-    //         'react': 'var React',
-    //         'react/addons': 'var React.addons',
-    //         'react/lib/keyMirror': 'var React.addons.keyMirror'
-    //     }
-    // ],
+    externals: [
+        {
+            'react': 'var React'
+        }
+    ],
     output: {
         filename: '[name].js',
         path: path.resolve(cwd, 'build/assets'),
@@ -47,7 +44,7 @@ export default {
             },
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', `less?root=${path.resolve(cwd, './node_modules/bootstrap/less/')}`]
+                loaders: ['style', 'css', 'less']
             }
         ]
     },

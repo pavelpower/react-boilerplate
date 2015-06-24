@@ -1,4 +1,3 @@
-import 'babel/polyfill';
 import React from 'react';
 import ActionCreators from 'actions/ActionCreators';
 import ApplicationStore from 'stores/Store'

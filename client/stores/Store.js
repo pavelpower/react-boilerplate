@@ -1,6 +1,5 @@
 import {EventEmitter} from 'events';
 import Immutable from 'immutable';
-import React from 'react/addons';
 import Dispatcher from 'core/Dispatcher';
 import Actions from 'constants/Actions';
 

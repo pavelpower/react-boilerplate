@@ -2,7 +2,6 @@ import express from 'express';
 
 import {config} from '../configs';
 
-import devServer from './devserver.js';
 import render from './render';
 
 var server = express();
@@ -17,7 +16,10 @@ server.use((request, response, next) => {
     next();
 });
 
-server.use (devServer());
+if (process.env.NODE_ENV !== 'production') {
+    var devServer = require('./devserver.js');
+    server.use(devServer());
+}
 
 server.use('/', render());
 
