@@ -19,7 +19,6 @@ class Control extends React.Component {
             case 'checkbox':
                 this.ControlClass = CheckboxControl;
                 break;
-                break;
             case 'radio':
                 this.ControlClass = RadioControl;
                 break;

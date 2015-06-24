@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryItem from 'components/CategoryItem';
+import Category from 'components/Category';
 
 import './Categories.less';
 
@@ -8,7 +8,7 @@ class Categories extends React.Component {
         var allCategories = Object.keys(this.props.categories).map((id) => {
             return (
                 <div className="Categories-item" key={id}>
-                    <CategoryItem {...this.props.categories[id]} />
+                    <Category {...this.props.categories[id]} />
                 </div>
             );
         });

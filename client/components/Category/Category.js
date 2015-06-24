@@ -3,18 +3,18 @@ import {addons} from 'react/addons';
 
 import ActionCreators from 'actions/ActionCreators';
 
-import './CategoryItem.less';
+import './Category.less';
 
-class CategoryItem extends React.Component {
+class Category extends React.Component {
     shouldComponentUpdate() {
         return addons.PureRenderMixin.shouldComponentUpdate.call(this, arguments);
     }
 
     render() {
         return (
-            <div className='CategoryItem'
+            <div className='Category'
                 onClick={this._onClick}>
-                <span className="CategoryItem-icon" />
+                <span className="Category-icon" />
                 {this.props.name}
             </div>
         );
@@ -25,4 +25,4 @@ class CategoryItem extends React.Component {
     }
 }
 
-export default CategoryItem;
+export default Category;
